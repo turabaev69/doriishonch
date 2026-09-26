@@ -1,0 +1,33 @@
+id,trade_name,inn,strength,form,atc_group,manufacturer_id,prescription_only,narrow_therapeutic_index,price_uzs,pack_size,gtin,has_marking,dispense_category
+1,Norvadin,Amlodipin,5 mg,tabletka,Qon bosimi (kalsiy kanali blokatori),5,1,0,98000,30 dona,04780000007919,1,rx
+2,Amlotens,Amlodipin,5 mg,tabletka,Qon bosimi (kalsiy kanali blokatori),7,1,0,64000,30 dona,04780000015838,1,rx
+3,Amlozar,Amlodipin,5 mg,tabletka,Qon bosimi (kalsiy kanali blokatori),1,1,0,21000,30 dona,04780000023757,1,rx
+4,Tumlodip,Amlodipin,5 mg,tabletka,Qon bosimi (kalsiy kanali blokatori),2,1,0,18500,30 dona,04780000031676,1,rx
+5,Glucoren,Metformin,850 mg,tabletka,Qandli diabet (biguanid),5,1,0,86000,30 dona,04780000039595,1,rx
+6,Metgan,Metformin,850 mg,tabletka,Qandli diabet (biguanid),6,1,0,39000,30 dona,04780000047514,1,rx
+7,Zarmetin,Metformin,850 mg,tabletka,Qandli diabet (biguanid),1,1,0,17000,30 dona,04780000055433,1,rx
+8,Diaform-O,Metformin,850 mg,tabletka,Qandli diabet (biguanid),4,1,0,12500,30 dona,04780000063352,0,rx
+9,Lozarex,Losartan,50 mg,tabletka,Qon bosimi (ARB),8,1,0,112000,30 dona,04780000071271,1,rx
+10,Losabos,Losartan,50 mg,tabletka,Qon bosimi (ARB),7,1,0,58000,30 dona,04780000079190,1,rx
+11,Registan-Losartan,Losartan,50 mg,tabletka,Qon bosimi (ARB),3,1,0,26000,30 dona,04780000087109,1,rx
+12,Atorheim,Atorvastatin,20 mg,tabletka,Xolesterin (statin),5,1,0,145000,30 dona,04780000095028,1,rx
+13,Atoganga,Atorvastatin,20 mg,tabletka,Xolesterin (statin),6,1,0,52000,30 dona,04780000102947,1,rx
+14,Tumastatin,Atorvastatin,20 mg,tabletka,Xolesterin (statin),2,1,0,31000,30 dona,04780000110866,1,rx
+15,Biscor-R,Bisoprolol,5 mg,tabletka,Yurak (beta-blokator),5,1,0,79000,30 dona,04780000118785,1,rx
+16,Bisobos,Bisoprolol,5 mg,tabletka,Yurak (beta-blokator),7,1,0,41000,30 dona,04780000126704,1,rx
+17,Zarbisol,Bisoprolol,5 mg,tabletka,Yurak (beta-blokator),1,1,0,16500,30 dona,04780000134623,1,rx
+18,Enap-A,Enalapril,10 mg,tabletka,Qon bosimi (AAF ingibitori),8,1,0,54000,30 dona,04780000142542,1,rx
+19,Registan-Enalapril,Enalapril,10 mg,tabletka,Qon bosimi (AAF ingibitori),3,1,0,9800,30 dona,04780000150461,1,rx
+20,Omerhein,Omeprazol,20 mg,kapsula,Oshqozon (proton pompa ingibitori),5,0,0,68000,20 dona,04780000158380,1,otc
+21,Omeganga,Omeprazol,20 mg,kapsula,Oshqozon (proton pompa ingibitori),6,0,0,24000,20 dona,04780000166299,1,otc
+22,Tumeprazol,Omeprazol,20 mg,kapsula,Oshqozon (proton pompa ingibitori),2,0,0,11500,20 dona,04780000174218,1,otc
+23,Orolprazol,Omeprazol,20 mg,kapsula,Oshqozon (proton pompa ingibitori),4,0,0,8900,20 dona,04780000182137,0,otc
+24,Amoxibos,Amoksitsillin,500 mg,kapsula,Antibiotik (penitsillin),7,1,0,47000,20 dona,04780000190056,1,rx
+25,Zaramoks,Amoksitsillin,500 mg,kapsula,Antibiotik (penitsillin),1,1,0,19500,20 dona,04780000197975,1,rx
+26,Paralpina,Paratsetamol,500 mg,tabletka,Ogʻriq va isitma,8,0,0,21000,30 dona,04780000205894,1,otc
+27,Tumaparol,Paratsetamol,500 mg,tabletka,Ogʻriq va isitma,2,0,0,4500,30 dona,04780000213813,1,otc
+28,Zarparol,Paratsetamol,500 mg,tabletka,Ogʻriq va isitma,1,0,0,3900,30 dona,04780000221732,1,otc
+29,Thyrorhein,Levotiroksin,50 mkg,tabletka,Qalqonsimon bez gormoni,5,1,1,56000,30 dona,04780000229651,1,rx
+30,Tumatirox,Levotiroksin,50 mkg,tabletka,Qalqonsimon bez gormoni,2,1,1,23000,30 dona,04780000237570,1,rx
+31,Tramarhein,Tramadol,50 mg,kapsula,"Kuchli ogʻriq qoldiruvchi (opioid, nazoratdagi)",5,1,0,74000,20 dona,04780000245489,1,controlled
+32,Zartramol,Tramadol,50 mg,kapsula,"Kuchli ogʻriq qoldiruvchi (opioid, nazoratdagi)",1,1,0,28000,20 dona,04780000253408,1,controlled

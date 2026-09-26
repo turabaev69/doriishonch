@@ -1,0 +1,9 @@
+manufacturer_id,type,number,valid_until,source_url,updated_at
+1,GMP (milliy),UZ-GMP-DEMO-0141,2028-03-31,https://www.uzpharm-gxp.uz/en/registry2,2026-09-01
+2,GMP (milliy),UZ-GMP-DEMO-0207,2027-11-30,https://www.uzpharm-gxp.uz/en/registry2,2026-09-01
+3,GMP (milliy),UZ-GMP-DEMO-0319,2026-12-31,https://www.uzpharm-gxp.uz/en/registry2,2026-09-01
+5,"GMP (xorijiy, UZ tan olgan)",UZ-FGMP-DEMO-1102,2028-06-30,https://www.uzpharm-gxp.uz/en/registry6,2026-09-01
+6,"GMP (xorijiy, UZ tan olgan)",UZ-FGMP-DEMO-1287,2027-09-30,https://www.uzpharm-gxp.uz/en/registry6,2026-09-01
+6,JSST prekvalifikatsiyasi,WHO-PQ-DEMO-77,2027-05-31,https://www.uzpharm-gxp.uz/en/registry6,2026-09-01
+7,"GMP (xorijiy, UZ tan olgan)",UZ-FGMP-DEMO-1355,2028-01-31,https://www.uzpharm-gxp.uz/en/registry6,2026-09-01
+8,"GMP (xorijiy, UZ tan olgan)",UZ-FGMP-DEMO-1410,2027-02-28,https://www.uzpharm-gxp.uz/en/registry6,2026-09-01

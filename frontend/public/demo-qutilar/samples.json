@@ -1,0 +1,58 @@
+[
+ {
+  "file": "norvadin-asl.jpg",
+  "gtin": "04780000007919",
+  "name": "Norvadin",
+  "label": "Norvadin · asl",
+  "truth": "asl"
+ },
+ {
+  "file": "norvadin-qalbaki.jpg",
+  "gtin": "04780000007919",
+  "name": "Norvadin",
+  "label": "Norvadin · qalbaki",
+  "truth": "qalbaki"
+ },
+ {
+  "file": "amoxibos-asl.jpg",
+  "gtin": "04780000190056",
+  "name": "Amoxibos",
+  "label": "Amoxibos · asl",
+  "truth": "asl"
+ },
+ {
+  "file": "amoxibos-qalbaki.jpg",
+  "gtin": "04780000190056",
+  "name": "Amoxibos",
+  "label": "Amoxibos · qalbaki",
+  "truth": "qalbaki"
+ },
+ {
+  "file": "metgan-asl.jpg",
+  "gtin": "04780000047514",
+  "name": "Metgan",
+  "label": "Metgan · asl",
+  "truth": "asl"
+ },
+ {
+  "file": "metgan-qalbaki.jpg",
+  "gtin": "04780000047514",
+  "name": "Metgan",
+  "label": "Metgan · qalbaki",
+  "truth": "qalbaki"
+ },
+ {
+  "file": "zartramol-asl.jpg",
+  "gtin": "04780000253408",
+  "name": "Zartramol",
+  "label": "Zartramol · asl",
+  "truth": "asl"
+ },
+ {
+  "file": "boshqa.jpg",
+  "gtin": "",
+  "name": "Notanish quti",
+  "label": "Notanish quti",
+  "truth": "boshqa"
+ }
+]

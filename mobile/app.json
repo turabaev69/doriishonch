@@ -1,0 +1,64 @@
+{
+  "expo": {
+    "name": "DoriIshonch",
+    "slug": "doriishonch",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "uz.doriishonch.app",
+      "infoPlist": {
+        "NSAppTransportSecurity": {
+          "NSAllowsLocalNetworking": true
+        },
+        "ITSAppUsesNonExemptEncryption": false,
+        "NSLocationWhenInUseUsageDescription": "Yaqin dorixonalarni topish uchun joylashuv kerak."
+      },
+      "buildNumber": "1"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "uz.doriishonch.app",
+      "versionCode": 1
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Dori qutisidagi kodni skanerlash va qutini suratga olish uchun kamera kerak.",
+          "recordAudioAndroid": false
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Yaqin dorixonalarni topish uchun joylashuv kerak."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Qadoq suratini tanlash uchun.",
+          "cameraPermission": "Qutini suratga olish uchun kamera kerak."
+        }
+      ]
+    ],
+    "scheme": "doriishonch",
+    "extra": {
+      "apiUrl": ""
+    },
+    "description": "Dori qutisini skanerlang: qayerdan kelgani, bojxonadan oʻtgani va oldin sotilmaganini tekshiring."
+  }
+}

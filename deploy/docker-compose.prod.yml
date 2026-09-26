@@ -1,0 +1,77 @@
+# Production: bitta VPS (Ubuntu, 2 GB RAM yetarli), domen va avtomatik HTTPS (Caddy / Let's Encrypt).
+#   cp deploy/.env.production.example deploy/.env.production   → qiymatlarni toʻldiring
+#   docker compose --env-file deploy/.env.production -f deploy/docker-compose.prod.yml up -d --build
+# Faqat 80/443 portlar ochiq. Backend va baza tashqaridan koʻrinmaydi.
+name: doriishonch
+
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: dori
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD ni .env ga yozing}
+      POSTGRES_DB: doriishonch
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dori"]
+      interval: 5s
+      retries: 20
+
+  backend:
+    build: ../backend
+    restart: unless-stopped
+    env_file: .env.production
+    environment:
+      ENVIRONMENT: production
+      SECRET_KEY: ${SECRET_KEY:?SECRET_KEY ni .env.production ga yozing}
+      AUTH_ENABLED: "true"
+      SHOW_DEMO_ACCOUNTS: "false"
+      SEED_ON_STARTUP: "false"
+      RATE_LIMIT_ENABLED: "true"
+      DATABASE_URL: postgresql+psycopg://dori:${POSTGRES_PASSWORD}@db:5432/doriishonch
+      CORS_ORIGINS: https://${DOMAIN}
+      TRUST_PROXY: "true"
+      ML_DIR: /app/ml_data
+    volumes:
+      - mldata:/app/ml_data   # oʻqitilgan skan xavf modeli (qayta ishga tushganda saqlanadi)
+    depends_on:
+      db: { condition: service_healthy }
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 15s
+      retries: 5
+
+  frontend:
+    build:
+      context: ../frontend
+      args:
+        BACKEND_URL: http://backend:8000
+    restart: unless-stopped
+    depends_on: [backend]
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports: ["80:80", "443:443"]
+    environment:
+      DOMAIN: ${DOMAIN:?DOMAIN ni .env ga yozing}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+    depends_on: [frontend]
+
+  bot:
+    build: ../bot
+    restart: unless-stopped
+    env_file: .env.production
+    environment:
+      API_URL: http://backend:8000
+      WEB_URL: https://${DOMAIN}
+    depends_on: [backend]
+    profiles: [bot]
+
+volumes:
+  pgdata:
+  caddy_data:
+  mldata:

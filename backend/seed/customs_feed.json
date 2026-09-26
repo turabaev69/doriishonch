@@ -1,0 +1,40 @@
+[
+  {
+    "number": "26001/250926/0004101",
+    "cleared_at": "2026-09-25T08:30:00",
+    "customs_post": "Toshkent-AERO bojxona posti",
+    "importer_tin": "300000102",
+    "origin_country": "Sloveniya",
+    "lines": [
+      {
+        "description": "LOSARTAN POTASSIUM 50MG FILM-COATED TABLETS N30, LOZAREX",
+        "gtin": "04780000071271",
+        "batch": "LZ-2609",
+        "quantity": 6,
+        "expiry": "2028-08-31",
+        "serials": ["LZNEW00000001", "LZNEW00000002", "LZNEW00000003", "LZNEW00000004", "LZNEW00000005", "LZNEW00000006"]
+      }
+    ]
+  },
+  {
+    "number": "26001/250926/0004102",
+    "cleared_at": "2026-09-25T10:10:00",
+    "customs_post": "Yallama bojxona posti",
+    "importer_tin": "300000101",
+    "origin_country": "Turkiya",
+    "lines": [
+      {
+        "description": "AMOXICILLIN 500 MG CAPSULES 20'S BOSFOR ILAC",
+        "batch": "AB-7781",
+        "quantity": 4,
+        "serials": ["AMXNEW0000001", "AMXNEW0000002", "AMXNEW0000003", "AMXNEW0000004"]
+      },
+      {
+        "description": "SLIMFAST HERBAL CAPS 60'S (dietary)",
+        "gtin": "04789999999980",
+        "batch": "SF-11",
+        "quantity": 1200
+      }
+    ]
+  }
+]

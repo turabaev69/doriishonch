@@ -1,0 +1,9 @@
+# Caddy domen uchun HTTPS sertifikatini avtomatik oladi va yangilaydi.
+{$DOMAIN} {
+	encode zstd gzip
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		-Server
+	}
+	reverse_proxy frontend:3000
+}
