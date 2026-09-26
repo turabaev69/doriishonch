@@ -5,6 +5,7 @@ import { useState } from "react";
 import { api, fmtDateTime, ReportReason, VerifyResponse } from "@/lib/api";
 import { Icon } from "./Icon";
 import { NewProductCard } from "./NewProductCard";
+import { PriceCard } from "./PriceCard";
 
 const STATUS = {
   ok: { style: "border-brand-100 bg-brand-50 text-brand-900", label: "Tekshiruv natijasi", symbol: "✓" },
@@ -16,7 +17,7 @@ const REASONS: [ReportReason, string][] = [["packaging", "Qadoq shubhali"], ["re
 
 export function VerifyResult({ r, onPurchase }: { r: VerifyResponse; onPurchase?: (price: number | null) => Promise<void> }) {
   const [buying, setBuying] = useState(false);
-  const [price, setPrice] = useState("");
+  const [pricePaid, setPricePaid] = useState<number | null>(null);
   const [note, setNote] = useState("");
   const [reason, setReason] = useState<ReportReason>("packaging");
   const [reportBusy, setReportBusy] = useState(false);
@@ -57,11 +58,13 @@ export function VerifyResult({ r, onPurchase }: { r: VerifyResponse; onPurchase?
       <div className="flex flex-wrap justify-between gap-2 py-3"><dt className="text-sm text-slate-500">Manba</dt><dd className="font-semibold">{source}</dd></div>
     </dl>
 
+    {r.scan_id && r.parsed.gtin && !r.checks.some(check => ["bad_gtin", "unreadable"].includes(check.key)) && <PriceCard scanId={r.scan_id} onSaved={setPricePaid} />}
+
     {r.reward && (r.reward.earned > 0 || r.reward.pending > 0) && <Link href="/ballar" className="reward-card"><span className="step-symbol"><Icon name="star" /></span><div><strong>{r.reward.earned ? `+${r.reward.earned} demo ball` : `${r.reward.pending} ball kutilmoqda`}</strong><p>Jami: {r.reward.total} ball</p></div><Icon name="chevron" size={19} /></Link>}
 
     {onPurchase && r.scan_id && r.verdict !== "danger" && <section className="card space-y-3">
       <h3 className="font-bold">Sotib oldingizmi?</h3>
-      <div className="flex flex-col gap-2 sm:flex-row"><input aria-label="Toʻlagan narxingiz, soʻm, ixtiyoriy" inputMode="numeric" className="text-input min-w-0 flex-1" placeholder="Narxi, soʻm (ixtiyoriy)" value={price} onChange={event => setPrice(event.target.value.replace(/\D/g, ""))} /><button type="button" className="primary-button" disabled={buying} onClick={async () => { setBuying(true); try { await onPurchase(price ? Number(price) : null); } finally { setBuying(false); } }}>{buying ? "Saqlanmoqda…" : "Sotib oldim"}</button></div>
+      <button type="button" className="primary-button" disabled={buying} onClick={async () => { setBuying(true); try { await onPurchase(pricePaid); } finally { setBuying(false); } }}>{buying ? "Saqlanmoqda…" : "Sotib oldim"}</button>
       <p className="text-sm text-slate-500">Xaridingiz ilovada qayd etiladi. Bu kassa cheki emas.</p>
     </section>}
 

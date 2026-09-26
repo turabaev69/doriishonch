@@ -232,6 +232,18 @@ export type VerifyInput = {
   lon?: number | null;
 };
 
+export type PriceSummary = {
+  saved_price: number | null;
+  sample_count: number;
+  median_price: number | null;
+  min_price: number | null;
+  max_price: number | null;
+  difference_percent: number | null;
+  period_days: number;
+  is_demo: boolean;
+  region: string;
+};
+
 export type DemoCode = {
   key: string;
   title: string;
@@ -346,6 +358,10 @@ export const api = {
       body: JSON.stringify(body),
     }),
   verifyImage: (form: FormData) => req<VerifyResponse>(`/verify/image`, { method: "POST", body: form }),
+  priceSummary: (scan_id: number, device_id: string) => req<PriceSummary>(`/verify/${scan_id}/price`, { headers: { "X-Device-Id": device_id } }),
+  savePrice: (scan_id: number, device_id: string, price_paid: number) => req<PriceSummary>(`/verify/${scan_id}/price`, {
+    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ device_id, price_paid }),
+  }),
   report: (scan_id: number, note: string, reason: ReportReason = "other") =>
     req<{ ok: boolean; message: string; pending_points: number }>(`/reports`, {
       method: "POST",

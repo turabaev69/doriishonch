@@ -2,7 +2,7 @@
 
 from collections import Counter
 
-from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
+from fastapi import APIRouter, Depends, File, Form, Header, HTTPException, UploadFile
 from pydantic import BaseModel
 from sqlalchemy import or_
 from sqlalchemy.orm import Session, joinedload
@@ -13,11 +13,11 @@ from .db import get_db
 from .models import ConsumerScan, CustomsDeclaration, CustomsLine, Drug, LedgerBlock, Pack, Participant
 from .schemas import (
     AlertOut, ChainEventOut, NearbyPharmacy, ChainStatus, CheckOut, LedgerEntryOut, LedgerInfo, CustomsDeclarationOut, CustomsLineOut, DemoCode, DispenseOut, PackOut,
-    ParticipantOut, PharmacyRiskDetail, PharmacyRiskOut, ReportRequest, VerifyRequest, VerifyResponse,
+    ParticipantOut, PharmacyRiskDetail, PharmacyRiskOut, PriceRequest, PriceSummary, ReportRequest, VerifyRequest, VerifyResponse,
 )
 from .seed_trace import SCENARIO_KEY91, UNREGISTERED_GTIN, scenario_codes
 from .ml import learning as ml_learning
-from .services import ai, catalog, codes, coverage, customs, ledger, places, rewards, risk, trace
+from .services import ai, catalog, codes, coverage, customs, ledger, places, prices, rewards, risk, trace
 
 router = APIRouter()
 
@@ -113,6 +113,18 @@ def verify(req: VerifyRequest, db: Session = Depends(get_db)):
                        mode=req.mode, pharmacy_id=req.pharmacy_id, device_id=req.device_id, price_paid=req.price_paid,
                        lat=req.lat, lon=req.lon)
     return _with_reward(res, db)
+
+
+@router.get("/verify/{scan_id}/price", response_model=PriceSummary)
+def price_summary(scan_id: int, device_id: str = Header(alias="X-Device-Id", min_length=8, max_length=200), db: Session = Depends(get_db)):
+    scan = prices.owned_scan(db, scan_id, device_id)
+    return prices.summary(db, scan)
+
+
+@router.post("/verify/{scan_id}/price", response_model=PriceSummary)
+def save_price(scan_id: int, req: PriceRequest, db: Session = Depends(get_db)):
+    scan = prices.owned_scan(db, scan_id, req.device_id)
+    return prices.save(db, scan, req.price_paid)
 
 
 def _check_pharmacy(db: Session, pharmacy_id: int | None) -> None:

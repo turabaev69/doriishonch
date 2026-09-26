@@ -16,6 +16,7 @@ kafolatlamaydi. Demo dorilar va ularning sotuv tarixi haqiqiy xaridlar emas.
 - Dori nomi, yaroqlilik muddati va ma’lumot manbasini ko‘rsatish.
 - Namangan dorixonalarini xaritadan topish va skanerlash uchun tanlash.
 - Qutining oldingi skanlari va xarid qaydlarini ko‘rish.
+- Xarid narxini kiritish va shu qutidagi dorining boshqa xaridorlar yozgan narxlari bilan solishtirish.
 - Dori qidiruvi, yordamchi va sinab ko‘rish uchun namuna kodlar.
 - Demo ballar va ball tarixi.
 
@@ -91,6 +92,16 @@ Ishlayotgan serverda bu buyruqlarni qayta ishga tushirmang — mavjud jarayonlar
 Hozir asosiy ish veb ilovaning xaridor qismida. Xodimlar panellari kodi saqlangan,
 lekin veb menyudan olib tashlangan. Bot va mobil prototip vebdagi eng so‘nggi o‘zgarishlar
 bilan bir xil deb hisoblanmasin.
+
+## Narxlar qanday solishtiriladi?
+
+Skanerdan keyin “Necha pulga sotib oldingiz?” deb so‘raladi. Butun quti narxini
+so‘mda yozasiz yoki “Hozir emas”ni bosasiz. Faqat bir xil quti kodi, oxirgi 90 kun
+va Namangan dorixonalari bo‘yicha solishtiramiz. Kamida uchta boshqa xaridor narxi
+kerak; demo va takroriy yozuvlar qo‘shilmaydi.
+
+Narxlar chek bilan tasdiqlanmagan. Dorixona reytingi hali yo‘q — bu ma’lumotlar
+uning keyingi asosi bo‘ladi. Hisoblash va cheklovlar [PRICE_DATA.md](PRICE_DATA.md) da.
 
 ## Tekshirish
 

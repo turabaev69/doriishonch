@@ -1,7 +1,7 @@
 from datetime import date, datetime
 from typing import Literal
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class ManufacturerOut(BaseModel):
@@ -134,7 +134,7 @@ class VerifyRequest(BaseModel):
     mode: Literal["before", "after"] = "before"
     pharmacy_id: int | None = None
     device_id: str | None = None  # brauzerdagi anonim ID (ism/telefon emas)
-    price_paid: int | None = None  # ixtiyoriy: xaridor toʻlagan narx (soʻm)
+    price_paid: int | None = Field(default=None, gt=0, le=100_000_000, strict=True)
     lat: float | None = None  # ixtiyoriy: skanerlangan joy (xarita uchun)
     lon: float | None = None
 
@@ -192,6 +192,23 @@ class VerifyResponse(BaseModel):
     places: list[dict] = []  # xarita: sotilgan / tekshirilgan joylar
     new_product: dict | None = None  # reestrda yoʻq mahsulot bazaga qoʻshildi: {gtin, name, scans, is_new}
     ai_risk: dict | None = None  # oʻz modelimiz: {score 0–100, level, reasons[{text, impact}], model}
+
+
+class PriceRequest(BaseModel):
+    device_id: str = Field(min_length=8, max_length=200)
+    price_paid: int = Field(gt=0, le=100_000_000, strict=True)
+
+
+class PriceSummary(BaseModel):
+    saved_price: int | None
+    sample_count: int
+    median_price: int | None
+    min_price: int | None
+    max_price: int | None
+    difference_percent: float | None
+    period_days: int
+    is_demo: bool
+    region: str
 
 
 class ReportRequest(BaseModel):

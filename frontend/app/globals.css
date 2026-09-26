@@ -76,6 +76,7 @@ svg { flex-shrink: 0; }
 .demo-pill { display: inline-flex; align-items: center; gap: 7px; border: 1px solid #e1dfcd; background: #f9f6e9; color: #766125; padding: 6px 12px; border-radius: 100px; font-size: .75rem; font-weight: 650; white-space: nowrap; }
 .home-grid { display: grid; grid-template-columns: minmax(0, 1fr) 330px; align-items: start; gap: 24px; }
 .home-primary, .home-aside { display: grid; gap: 24px; min-width: 0; }
+.home-primary { grid-template-columns: minmax(0, 1fr); }
 .scan-hero { position: relative; overflow: hidden; border-radius: 26px; border: 1px solid #d9e5d0; background: #eaf1e0; }
 .hero-top { position: relative; min-height: 282px; padding: 34px 32px 24px; }
 .hero-copy { position: relative; z-index: 1; max-width: 61%; }
@@ -95,7 +96,7 @@ svg { flex-shrink: 0; }
 .scan-alternatives { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
 .scan-alternatives button { font-size: .875rem; background: #ffffffa6; border-color: #d5dfca; }
 .camera-note { display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: 13px; color: #56664f; font-size: .75rem; }
-.manual-form { padding: 20px; margin-top: 18px; background: white; border-radius: 15px; display: grid; gap: 14px; }
+.manual-form { padding: 20px; margin-top: 18px; background: white; border-radius: 15px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
 .field-label { display: block; margin-bottom: 7px; font-size: .875rem; font-weight: 700; }
 .text-input { width: 100%; min-width: 0; min-height: 50px; padding: 12px 14px; border: 1px solid #cbd6c7; border-radius: 11px; background: white; color: #20352b; font-size: 1rem; }
 .text-input::placeholder { color: #727d71; }
