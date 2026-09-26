@@ -1,5 +1,7 @@
 # DoriIshonch
 
+https://portions-lie-replies-regards.trycloudflare.com/
+
 Dori sotib olayotganda qutidagi kodni tekshirish uchun qilayotgan ilovamiz.
 Kodni kamera bilan skanerlash, suratdan o‘qish yoki qo‘lda yozish mumkin.
 Natijada kod bo‘yicha bor ma’lumot va ogohlantirishlar ko‘rinadi.
